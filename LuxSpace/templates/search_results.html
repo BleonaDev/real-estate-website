@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Search Results</title>
+ <link rel="stylesheet" href="{% static 'style.css' %}" >
+</head>
+<body>
+<div class="search-results">
+<h2>Results for "{{ query }}"</h2>
+
+<div class="resultscontainer">
+    {% for product in page_obj %}
+        <div class="property-card">
+            <h3 style="color:rgba(167,211,232,0.94);">{{ product.name }}</h3><br>
+            <p>{{ product.description|truncatewords:25 }}</p>
+            <p><strong>Price:</strong> ${{ product.price }}</p><br>
+          <a href="{% url 'property_detail' product.id %}" class="view-details-btn">View Details→</a>
+    </div>
+    {% empty %}
+        <p>No results found.</p>
+    {% endfor %}
+</div></div>
+</body>
+</html>
+
