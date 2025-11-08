@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&b%@a*q45g@$t@4djxm=s6%!-_aw*xojruek_s2mj-4l$dn4zi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["real-estate-website-4.onrender.com"]
 
 
 # Application definition
@@ -126,5 +126,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
